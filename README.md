@@ -13,6 +13,8 @@
 
 [下载地址](https://github.com/HCG-Studio/HIT-Schedule-Master/releases)
 
+[Wiki](https://github.com/HCGStudio/HIT-Schedule-Master/wiki)
+
 ## 主要功能
 
 - 从校园网中下载个人课表或者班级推荐课表并将其转换为 iCalendar (RFC 5545) 格式以便导入到日历软件中
