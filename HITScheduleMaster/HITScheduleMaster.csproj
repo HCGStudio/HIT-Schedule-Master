@@ -12,7 +12,7 @@
     <Authors>HCG Studio</Authors>
     <PackageProjectUrl>https://github.com/HCG-Studio/HIT-Schedule-Master</PackageProjectUrl>
     <RepositoryUrl>https://github.com/HCG-Studio/HIT-Schedule-Master</RepositoryUrl>
-    <AssemblyVersion>1.0.0.0</AssemblyVersion>
+    <AssemblyVersion>1.0.1.0</AssemblyVersion>
   </PropertyGroup>
 
   <ItemGroup>
