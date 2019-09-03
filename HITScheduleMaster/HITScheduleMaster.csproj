@@ -10,9 +10,10 @@
     <RootNamespace>HCGStudio.HITScheduleMaster</RootNamespace>
     <StartupObject>HCGStudio.HITScheduleMaster.App</StartupObject>
     <Authors>HCG Studio</Authors>
-    <PackageProjectUrl>https://github.com/HCG-Studio/HIT-Schedule-Master</PackageProjectUrl>
-    <RepositoryUrl>https://github.com/HCG-Studio/HIT-Schedule-Master</RepositoryUrl>
-    <AssemblyVersion>1.0.1.0</AssemblyVersion>
+    <PackageProjectUrl>https://github.com/HCGStudio/HIT-Schedule-Master</PackageProjectUrl>
+    <RepositoryUrl>https://github.com/HCGStudio/HIT-Schedule-Master</RepositoryUrl>
+    <AssemblyVersion>1.0.2.0</AssemblyVersion>
+    <FileVersion>1.0.2.0</FileVersion>
   </PropertyGroup>
 
   <ItemGroup>

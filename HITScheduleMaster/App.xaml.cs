@@ -26,7 +26,7 @@ namespace HCGStudio.HITScheduleMaster
             if (string.Compare(currentVersion, info.tag_name as string, StringComparison.Ordinal) >= 0) return;
             if (MessageBox.Show("有新版本发布，是否更新？", "新版本！", MessageBoxButton.YesNo, MessageBoxImage.Asterisk) ==
                 MessageBoxResult.Yes)
-                Process.Start(info.html_url as string ?? throw new InvalidOperationException());
+                Process.Start("explorer", info.html_url as string ?? throw new InvalidOperationException());
         }
     }
 }

@@ -116,5 +116,10 @@ namespace HCGStudio.HITScheduleMaster
         {
             await GetAndUpdateCaptcha();
         }
+
+        private void Exit_Base_OnClick(object sender, RoutedEventArgs e)
+        {
+            Environment.Exit(0);
+        }
     }
 }

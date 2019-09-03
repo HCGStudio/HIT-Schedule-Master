@@ -1,5 +1,6 @@
 ﻿using System;
 using System.Collections.Generic;
+using System.Diagnostics;
 using System.IO;
 using System.Linq;
 using System.Net.Http;
@@ -118,7 +119,8 @@ namespace HCGStudio.HITScheduleMaster
             if (MessageBox.Show("成功，您是否要了解如何将iCalendar导入到您的日历中？", "导出成功", MessageBoxButton.YesNo,
                     MessageBoxImage.Question) == MessageBoxResult.Yes)
             {
-                //TODO: 打开网页
+                Process.Start("explorer","https://github.com/HCGStudio/HIT-Schedule-Master/wiki");
+                Environment.Exit(0);
             }
             else
             {

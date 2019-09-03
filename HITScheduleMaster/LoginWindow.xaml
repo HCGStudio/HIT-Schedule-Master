@@ -44,7 +44,7 @@
         <StackPanel Grid.ColumnSpan="3" Grid.Column="0" Grid.Row="6"
                     Margin="5" Orientation="Horizontal" HorizontalAlignment="Right">
             <Button FontSize="16" Margin="5" Click="Login_Button_OnClick">登录</Button>
-            <Button FontSize="16" Margin="5">退出</Button>
+            <Button FontSize="16" Margin="5" Click="Exit_Base_OnClick">退出</Button>
         </StackPanel>
     </Grid>
 </Window>
