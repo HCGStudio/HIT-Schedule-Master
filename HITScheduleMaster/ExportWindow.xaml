@@ -1,0 +1,42 @@
+﻿<Window x:Class="HCGStudio.HITScheduleMaster.ExportWindow"
+        xmlns="http://schemas.microsoft.com/winfx/2006/xaml/presentation"
+        xmlns:x="http://schemas.microsoft.com/winfx/2006/xaml"
+        xmlns:d="http://schemas.microsoft.com/expression/blend/2008"
+        xmlns:mc="http://schemas.openxmlformats.org/markup-compatibility/2006"
+        xmlns:local="clr-namespace:HCGStudio.HITScheduleMaster"
+        mc:Ignorable="d"
+        Title="HIT Schedule Master" SizeToContent="WidthAndHeight" ResizeMode="NoResize">
+    <Grid>
+        <Grid.ColumnDefinitions>
+            <ColumnDefinition />
+
+        </Grid.ColumnDefinitions>
+        <Grid.RowDefinitions>
+            <RowDefinition Height="auto" />
+            <RowDefinition Height="auto" />
+            <RowDefinition Height="auto" />
+            <RowDefinition Height="auto" />
+            <RowDefinition Height="auto" />
+            <RowDefinition Height="auto" />
+            <RowDefinition Height="auto" />
+        </Grid.RowDefinitions>
+        <TextBlock Grid.Row="0" Margin="5" Grid.ColumnSpan="3" FontSize="24">
+            请选择目标课表
+        </TextBlock>
+
+        <RadioButton Name="PersonalSchedule" Grid.Row="1" Margin="5" Grid.ColumnSpan="3" FontSize="24" IsChecked="True">个人课表</RadioButton>
+        <RadioButton Name="RecommendSchedule" Grid.Row="2" Margin="5" Grid.ColumnSpan="3" FontSize="24">班级推荐课表</RadioButton>
+        <RadioButton Visibility="Collapsed" Checked="OtherClassSchedule_OnChecked"
+                     Unchecked="OtherClassSchedule_OnUnchecked" Name="OtherClassSchedule" Grid.Row="3" Margin="5"
+                     Grid.ColumnSpan="3" FontSize="24">
+            其它班级课表
+        </RadioButton>
+        <TextBox Name="ClassNumberInput" Grid.Row="4" Margin="25,5,5,5" Grid.ColumnSpan="3" FontSize="24"
+                 Visibility="Collapsed" />
+        <StackPanel Grid.ColumnSpan="3" Grid.Row="6"
+                    Margin="5" Orientation="Horizontal" HorizontalAlignment="Right">
+            <Button FontSize="16" Margin="5" Click="OnRideOn">确定</Button>
+            <Button FontSize="16" Margin="5" Click="CancelButton_OnClick">退出</Button>
+        </StackPanel>
+    </Grid>
+</Window>
