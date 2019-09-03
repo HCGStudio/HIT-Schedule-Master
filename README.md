@@ -13,6 +13,8 @@
 
 [下载地址](https://github.com/HCG-Studio/HIT-Schedule-Master/releases)
 
+[Wiki](https://github.com/HCGStudio/HIT-Schedule-Master/wiki)
+
 ## 主要功能
 
 - 从校园网中下载个人课表或者班级推荐课表并将其转换为 iCalendar (RFC 5545) 格式以便导入到日历软件中
@@ -56,4 +58,14 @@
 
 ### 方法二
 
-在Windows下使用电子邮件将`ics`文件作为附件发送到iOS`邮件`应用中登录的账户，按照提示即可完成导入。
+在Windows下使用电子邮件将`ics`文件通过QQ传到手机，或者作为附件发送到iOS`邮件`应用中登录的账户，按照提示即可完成导入。
+
+## Android 如何导入
+
+### 方法一
+
+在Windows下使用Windows日历或者Google日历，在您使用系统的`日历`应用中登录对应的电子邮件账户就可以导入日历到Android设备。
+
+### 方法二
+
+在Windows下使用电子邮件将`ics`文件通过QQ传到手机，选择使用`日历`打开。如果您的系统无法使用日历打开`ics`文件，建议您安装`Google 日历`（无需登录即可导入）或者其他支持的日历软件（欢迎在PR中提出）。
