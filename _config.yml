@@ -1,1 +1,3 @@
 theme: jekyll-theme-cayman
+title: 哈工大课表大师
+description: 一个使用dotnet core导出课表的程序
