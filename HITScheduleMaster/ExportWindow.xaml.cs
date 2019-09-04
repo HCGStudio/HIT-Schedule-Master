@@ -119,7 +119,7 @@ namespace HCGStudio.HITScheduleMaster
             if (MessageBox.Show("成功，您是否要了解如何将iCalendar导入到您的日历中？", "导出成功", MessageBoxButton.YesNo,
                     MessageBoxImage.Question) == MessageBoxResult.Yes)
             {
-                Process.Start("explorer","https://github.com/HCGStudio/HIT-Schedule-Master/wiki");
+                Process.Start("explorer", "https://github.com/HCGStudio/HIT-Schedule-Master/wiki");
                 Environment.Exit(0);
             }
             else
@@ -149,7 +149,8 @@ namespace HCGStudio.HITScheduleMaster
                     var name = splitCurrent[index * 2];
                     var getLocation = splitCurrent[index * 2 + 1].Split("]周");
                     var location = getLocation.Length == 1 ? string.Empty : getLocation.Last();
-                    var weeks = splitCurrent[index * 2 + 1].Split("[").Last().Split("]周").First().Split(", ");
+                    var weeks = splitCurrent[index * 2 + 1].Split("[").Last().Split("]周").First().Replace("，", "")
+                        .Split(", ");
                     var teacher = splitCurrent[index * 2 + 1].Split("[").First();
                     var weekList = new List<int>();
                     foreach (var week in weeks)
@@ -238,7 +239,7 @@ namespace HCGStudio.HITScheduleMaster
                     var getLocation = currentCourse.Split("◇");
                     var location = getLocation.Length == 1 ? string.Empty : getLocation.Last();
                     var b = currentCourse.Split("[").Last();
-                    var weeks = b.Split("周]").First().Split(", ");
+                    var weeks = b.Split("周]").First().Replace("，", ", ").Split(", ");
                     var teacher = currentCourse.Split("◇")[1].Split("[").First();
                     var weekList = new List<int>();
                     foreach (var week in weeks)
