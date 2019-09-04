@@ -17,14 +17,16 @@ namespace HCGStudio.HITScheduleMaster
     /// <summary>
     ///     WinLogin.xaml 的交互逻辑
     /// </summary>
-    public partial class LoginWindow : Window, INotifyPropertyChanged
+    public partial class LoginWindow : Window
     {
-        private ImageSource _captchaImage;
+
+        LoginInformation Model { get; set; }
 
         public LoginWindow()
         {
             InitializeComponent();
-            DataContext = this;
+            Model = new LoginInformation();
+            DataContext = Model;
             Http = new HttpClient(new HttpClientHandler
             {
                 UseCookies = true,
@@ -32,25 +34,17 @@ namespace HCGStudio.HITScheduleMaster
                 CookieContainer = new CookieContainer()
             });
             //不要问为啥User-Agent是这玩意
+            //?nslm?
             Http.DefaultRequestHeaders.UserAgent.ParseAdd(
                 "Mozilla/5.0 (Macintosh; Intel Mac OS X 10_14_5) AppleWebKit/605.1.15 (KHTML, like Gecko) Version/12.1.1 Safari/605.1.15");
             Http.BaseAddress = new Uri("http://jwts.hit.edu.cn/");
+        
         }
 
-        public ImageSource CaptchaImage
-        {
-            get => _captchaImage;
-            set
-            {
-                _captchaImage = value;
-                NotifyPropertyChange();
-            }
-        }
 
 
         private HttpClient Http { get; }
 
-        public event PropertyChangedEventHandler PropertyChanged;
 
         private async void LoginWindow_OnLoaded(object sender, RoutedEventArgs e)
         {
@@ -81,7 +75,7 @@ namespace HCGStudio.HITScheduleMaster
             await (await fetchCode.Content.ReadAsStreamAsync()).CopyToAsync(writeCaptcha);
             await writeCaptcha.FlushAsync();
             writeCaptcha.Close();
-            CaptchaImage = new BitmapImage(new Uri(captchaFileName));
+            Model.CaptchaImage = new BitmapImage(new Uri(captchaFileName));
         }
 
         private async void Login_Button_OnClick(object sender, RoutedEventArgs e)
@@ -89,9 +83,9 @@ namespace HCGStudio.HITScheduleMaster
             IsEnabled = false;
             using var content = new FormUrlEncodedContent(new[]
             {
-                new KeyValuePair<string, string>("usercode", IdBox.Text),
-                new KeyValuePair<string, string>("password", PasswordBox.Password),
-                new KeyValuePair<string, string>("code", CaptchaBox.Text)
+                new KeyValuePair<string, string>("usercode", Model.StudentID),
+                new KeyValuePair<string, string>("password", PasswordBox.Password),//安全考虑PasswordBox不用数据绑定
+                new KeyValuePair<string, string>("code", Model.Captcha)
             });
             var response = await Http.PostAsync("/loginLdap", content);
             if (response.RequestMessage.RequestUri.ToString() != "http://jwts.hit.edu.cn/loginLdap")
@@ -106,11 +100,6 @@ namespace HCGStudio.HITScheduleMaster
             }
         }
 
-        [NotifyPropertyChangedInvocator]
-        protected virtual void NotifyPropertyChange([CallerMemberName] string propertyName = null)
-        {
-            PropertyChanged?.Invoke(this, new PropertyChangedEventArgs(propertyName));
-        }
 
         private async void Image_OnMouseDown(object sender, MouseButtonEventArgs e)
         {

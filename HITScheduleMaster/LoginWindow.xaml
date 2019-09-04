@@ -35,12 +35,12 @@
         <TextBlock Grid.Row="3" Margin="5" Grid.Column="0" FontSize="24">学号</TextBlock>
         <TextBlock Grid.Row="4" Margin="5" Grid.Column="0" FontSize="24">密码</TextBlock>
         <TextBlock Grid.Row="5" Margin="5" Grid.Column="0" FontSize="24">验证码</TextBlock>
-        <TextBox Name="IdBox" Grid.Row="3" Margin="5" Grid.Column="1" Grid.ColumnSpan="2" FontSize="24"
-                 Text="{Binding Test}" />
-        <PasswordBox Name="PasswordBox" Grid.Row="4" Margin="5" Grid.Column="1" Grid.ColumnSpan="2" FontSize="24" />
+        <TextBox Text="{Binding StudentID,Mode=TwoWay,UpdateSourceTrigger=PropertyChanged}" Grid.Row="3" Margin="5" Grid.Column="1" Grid.ColumnSpan="2" FontSize="24"
+                  />
+        <PasswordBox x:Name="PasswordBox" Grid.Row="4" Margin="5" Grid.Column="1" Grid.ColumnSpan="2" FontSize="24" />
         <Image Grid.Row="5" Margin="5,5,5,0" Grid.Column="1" Width="100" MouseDown="Image_OnMouseDown" Height="33"
                Source="{Binding CaptchaImage}" VerticalAlignment="Top" />
-        <TextBox Name="CaptchaBox" Grid.Row="5" Margin="5" Grid.Column="2" FontSize="24" />
+        <TextBox Text="{Binding Captcha,Mode=TwoWay,UpdateSourceTrigger=PropertyChanged}" Grid.Row="5" Margin="5" Grid.Column="2" FontSize="24" />
         <StackPanel Grid.ColumnSpan="3" Grid.Column="0" Grid.Row="6"
                     Margin="5" Orientation="Horizontal" HorizontalAlignment="Right">
             <Button FontSize="16" Margin="5" Click="Login_Button_OnClick" IsDefault="True">登录</Button>
