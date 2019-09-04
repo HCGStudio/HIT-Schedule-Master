@@ -119,7 +119,7 @@ namespace HCGStudio.HITScheduleMaster
             if (MessageBox.Show("成功，您是否要了解如何将iCalendar导入到您的日历中？", "导出成功", MessageBoxButton.YesNo,
                     MessageBoxImage.Question) == MessageBoxResult.Yes)
             {
-                Process.Start("explorer","https://github.com/HCGStudio/HIT-Schedule-Master/wiki");
+                Process.Start("explorer", "https://github.com/HCGStudio/HIT-Schedule-Master/wiki");
                 Environment.Exit(0);
             }
             else
