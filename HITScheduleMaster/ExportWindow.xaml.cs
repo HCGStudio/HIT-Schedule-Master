@@ -82,7 +82,7 @@ namespace HCGStudio.HITScheduleMaster
                 var getSchedule = await Http.PostAsync("/kbcx/ExportGrKbxx", content);
                 await using var xlsStream = await getSchedule.Content.ReadAsStreamAsync();
                 cal = ConvertPersonalXlsToCalendar(xlsStream, semester);
-                saveDialog.FileName = $"{name}个人课表.ics";
+                saveDialog.FileName = $"{name} 个人课表.ics";
             }
             else if (RecommendSchedule.IsChecked == true)
             {

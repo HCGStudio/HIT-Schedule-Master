@@ -1,5 +1,6 @@
 ﻿using System;
 using System.Collections.Generic;
+using System.Collections.ObjectModel;
 
 namespace HCGStudio.HITScheduleMaster
 {
@@ -10,7 +11,7 @@ namespace HCGStudio.HITScheduleMaster
         public string Location { get; set; }
         public bool? IsEnableAlarm { get; set; }
         public int NotifyTime { get; set; }
-        public List<RelativeTime> Times { get; set; }
+        public ObservableCollection<RelativeTime> Times { get; set; }
 
         public class RelativeTime
         {
