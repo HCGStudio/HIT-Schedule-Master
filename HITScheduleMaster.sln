@@ -5,9 +5,9 @@ VisualStudioVersion = 16.0.29215.179
 MinimumVisualStudioVersion = 10.0.40219.1
 Project("{9A19103F-16F7-4668-BE54-9A1E7A4F7556}") = "HITScheduleMaster", "HITScheduleMaster\HITScheduleMaster.csproj", "{B95F04B3-C42A-485E-89A4-D01429B406C5}"
 EndProject
-Project("{FAE04EC0-301F-11D3-BF4B-00C04F79EFBC}") = "HITScheduleMasterCLI", "HITScheduleMasterCLI\HITScheduleMasterCLI.csproj", "{F9DE89DE-7201-4A8B-83C1-D099FA15672D}"
+Project("{9A19103F-16F7-4668-BE54-9A1E7A4F7556}") = "HITScheduleMasterCLI", "HITScheduleMasterCLI\HITScheduleMasterCLI.csproj", "{F9DE89DE-7201-4A8B-83C1-D099FA15672D}"
 EndProject
-Project("{FAE04EC0-301F-11D3-BF4B-00C04F79EFBC}") = "ScheduleTranslator", "ScheduleTranslator\ScheduleTranslator.csproj", "{94D665B1-E2B2-4444-BB1C-7DD0499811F0}"
+Project("{9A19103F-16F7-4668-BE54-9A1E7A4F7556}") = "ScheduleTranslator", "ScheduleTranslator\ScheduleTranslator.csproj", "{94D665B1-E2B2-4444-BB1C-7DD0499811F0}"
 EndProject
 Global
 	GlobalSection(SolutionConfigurationPlatforms) = preSolution
