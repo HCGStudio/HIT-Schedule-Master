@@ -56,6 +56,7 @@ namespace ScheduleTranslator
         /// <summary>
         /// 课程名
         /// </summary>
+        public string WeekExpression { get; private set; }
         public string CourseName { get; set; }
         /// <summary>
         /// 上课的位置
@@ -74,15 +75,15 @@ namespace ScheduleTranslator
         public void ChangeWeek(string weekExpression)
         {
             Week = ParseWeek(weekExpression);}
-        private uint ParseWeek(string weekExpression)
+        public uint ParseWeek(string weekExpression)
         {
             var week = 0u;
-            weekExpression = weekExpression
+            WeekExpression = weekExpression
                 .Replace(", ", "|")//英文逗号+空格
                 .Replace("，", "|")//中文逗号
                 .Replace(" ", "|");//手动输入的空格
             
-            var expressions = weekExpression.Split('|');
+            var expressions = WeekExpression.Split('|');
             foreach (var expression in expressions)
             {
                 var singleWeek = !expression.Contains("双");
@@ -123,6 +124,8 @@ namespace ScheduleTranslator
             {
                 MaxWeek = maxWeek;
             }
+
+            Week = week;
             return week;
         }
         public ScheduleEntry(DayOfWeek dayOfWeek, CourseTime courseTime, string scheduleExpression, bool isLongCourse = false)
@@ -130,15 +133,17 @@ namespace ScheduleTranslator
             CourseName = scheduleExpression[..scheduleExpression.IndexOf('<')];
             Teacher = scheduleExpression[(1 + scheduleExpression.IndexOf('>'))..scheduleExpression.IndexOf('[')];
             Week = ParseWeek(
-                scheduleExpression[(1 + scheduleExpression.IndexOf('['))..scheduleExpression.IndexOf(']')]);
-            var location = scheduleExpression[(scheduleExpression.IndexOf('周'))..];
-            Location = location.Length == 1 ? "" : location[1..];
+                scheduleExpression[(1 + scheduleExpression.IndexOf('['))..scheduleExpression.IndexOf(']')]
+                );
+            var location = scheduleExpression[(scheduleExpression.IndexOf(']')+1)..];
+            Location = location.Length == 1 ? "待定地点" : location[1..];
             CourseTime = courseTime;
             DayOfWeek = dayOfWeek;
             IsLongCourse = isLongCourse;
-            Length = IsLongCourse
+            Length = !IsLongCourse
                 ? new TimeSpan(1, 45, 00)
-                : new TimeSpan(2, 30, 00);
+                : new TimeSpan(3, 30, 00);
+
             StartTime = StartTimes[(int)CourseTime];
             CourseTimeName = CourseTime switch
             {

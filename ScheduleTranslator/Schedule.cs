@@ -50,14 +50,17 @@ namespace ScheduleTranslator
             for (var i = 0; i < 7; i++)//列
                 for (var j = 0; j < 5; j++)//行
                 {
-                    var current = table.Rows[i + 2][j + 2] as string;
+                    var current = table.Rows[j + 2][i + 2] as string;
                     if (string.IsNullOrWhiteSpace(current))
                         continue;
-                    var next = table.Rows[i + 2][j + 3] as string;
-                    Entries.Add(new ScheduleEntry((DayOfWeek)(i % 7),
+                    var next = table.Rows[j + 3][i + 2] as string;
+                    Entries.Add(new ScheduleEntry((DayOfWeek)((i+1) % 7),
                         (CourseTime)(j + 1),
                         current, current == next));
-                    if (current == next) j++;
+                    if (current == next)
+                    {
+                        j++;
+                    }
                 }
 
         }
@@ -90,13 +93,13 @@ namespace ScheduleTranslator
                     calendar.Events.Add(cEvent);
                 }
             }
-            var sem = Semester switch
-            {
-                Semester.Autumn => "秋",
-                Semester.Summer => "夏",
-                _ => "春"
-            };
-            calendar.Name = $"{Year}{sem}课程表";
+            //var sem = Semester switch
+            //{
+            //    Semester.Autumn => "秋",
+            //    Semester.Summer => "夏",
+            //    _ => "春"
+            //};
+            //calendar.Name = $"{Year}{sem}课程表";
             return calendar;
         }
         public Schedule(int year, Semester semester)
