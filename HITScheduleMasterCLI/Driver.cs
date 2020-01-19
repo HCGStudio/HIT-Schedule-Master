@@ -11,6 +11,7 @@ using static Newtonsoft.Json.JsonConvert;
 
 namespace HITScheduleMasterCLI
 {
+    [MobileSuitInfo("HIT-Schedule-Master")]
     public class Driver : IIoInteractive
     {
         private Schedule Schedule { get; set; }
