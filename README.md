@@ -40,15 +40,28 @@
 
 - 暂无
 
+## CLI版本使用说明
+
+输入'ls'即可获得所有可用命令。
+
 ## Windows日历 如何导入
+
+**请注意，Windows版“日历”应用只能将事件导入到已经存在的日历中，这可能是不安全的，因此作者建议采用网页版Outlook，或者Google日历来完成事件导入。**
 
 先使用您的**电子邮件账户**登录Windows日历程序，然后使用Windows日历打开生成的`ics`文件，自动显示导入。
 
 根据提示，选择指定的日历即可完成导入。
 
-![image1](https://github.com/HCGStudio/HIT-Schedule-Master/raw/master/images/image-1.png)
+![image1](./images/image-1.png)
 
 导入后，日历将与您登录的电子邮件账户同步，在移动端登录邮箱也会同步导入的日历。
+
+## Outlook日历如何导入
+
+1. 首先登陆网页版[网页版Outlook日历](https://outlook.live.com/calendar/)进行导入。
+2. 在左边栏中点击"添加日历"![image2](./images/image-3.png)
+3. 在弹出的窗口中，如图示完成新建日历。![image3](./images/image-4.png)
+4. 将ICS描述的事件导入到新建的日历中。![image4](./images/image-5.png)
 
 
 ## Google日历 如何导入
@@ -61,7 +74,7 @@
 
 ### 方法一
 
-在Windows下使用Windows日历或者Google日历，在iOS的'邮件'应用中登录对应的电子邮件账户就可以导入日历到iOS设备。
+在Windows下使用Windows日历，Outlook日历或者Google日历，在iOS的'邮件'应用中登录对应的电子邮件账户就可以导入日历到iOS设备。
 
 ### 方法二
 
@@ -71,7 +84,7 @@
 
 ### 方法一
 
-在Windows下使用Windows日历或者Google日历，在您使用系统的`日历`应用中登录对应的电子邮件账户就可以导入日历到Android设备。
+在Windows下使用Windows日历，Outlook日历或者Google日历，在您使用系统的`日历`应用中登录对应的电子邮件账户就可以导入日历到Android设备。
 
 ### 方法二
 

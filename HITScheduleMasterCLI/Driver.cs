@@ -14,7 +14,7 @@ namespace HITScheduleMasterCLI
     public class Driver : IIoInteractive
     {
         private Schedule Schedule { get; set; }
-        
+        [MobileSuitInfo("向课表添加一个课程")]
         public void Add()
         {
             var name = Io?.ReadLine("输入课程名称");
@@ -36,6 +36,7 @@ namespace HITScheduleMasterCLI
             Io?.WriteLine("非法输入。", IoInterface.OutputType.Error);
 
         }
+        [MobileSuitInfo("向课表导入一个JSON描述的课程: ImpCse <.json>")]
         public void ImpCse(string path)
         {
             if (!File.Exists(path))
@@ -45,6 +46,7 @@ namespace HITScheduleMasterCLI
             }
             Schedule.Entries.Add(DeserializeObject<ScheduleEntry>(File.ReadAllText(path)));
         }
+        [MobileSuitInfo("从课表导出一个JSON描述的课程：ExpCse <ID> <.json>")]
         public void ExpCse(string id, string path = "")
         {
             if (Schedule is null) return;
@@ -62,6 +64,7 @@ namespace HITScheduleMasterCLI
                 Environment.Exit(0);
             }
         }
+        [MobileSuitInfo("从课表移除一个JSON描述的课程：Remove <ID>")]
         public void Remove(string id)
         {
             if (Schedule is null) return;
@@ -70,6 +73,7 @@ namespace HITScheduleMasterCLI
                 Schedule.Entries.RemoveAt(index);
             }
         }
+        [MobileSuitInfo("编辑课表中的课程：Edit <ID>")]
         public void Edit(string id)
         {
             if (Schedule is null) return;
@@ -105,6 +109,7 @@ namespace HITScheduleMasterCLI
             WrongInput:
             Io?.WriteLine("非法输入。", IoInterface.OutputType.Error);
         }
+        [MobileSuitInfo("导出整张课表：Export <.ics>")]
         public void Export(string path = "")
         {
             ScheduleCheck();
@@ -125,6 +130,7 @@ namespace HITScheduleMasterCLI
                 Environment.Exit(0);
             }
         }
+        [MobileSuitInfo("显示整张课表：Export <.ics>")]
         public void Show()
         {
             ScheduleCheck();
@@ -159,6 +165,7 @@ namespace HITScheduleMasterCLI
                 ShowScheduleEntry(i, maxWeek, Schedule.Entries[i]);
             }
         }
+        [MobileSuitInfo("从xls导入整个课表：LoadXls <.xls>")]
         public void LoadXls(string path)
         {
             Encoding.RegisterProvider(CodePagesEncodingProvider.Instance);
@@ -171,6 +178,7 @@ namespace HITScheduleMasterCLI
             using var fs = File.OpenRead(path);
             Schedule = new Schedule(fs);
         }
+        [MobileSuitInfo("从json导入整个课表：LoadJson <.json>")]
         public void LoadJson(string path)
         {
             if (!File.Exists(path))
@@ -180,6 +188,7 @@ namespace HITScheduleMasterCLI
             }
             Schedule = DeserializeObject<Schedule>(File.ReadAllText(path));
         }
+        [MobileSuitInfo("创建新课表")]
         public void New()
         {
             if (!(int.TryParse(
@@ -204,7 +213,7 @@ namespace HITScheduleMasterCLI
 
             Schedule = new Schedule(year, (Semester)s);
         }
-
+        [MobileSuitInfo("初始化课表")]
         public void Init()
         {
             Io?.WriteLine("课表尚未初始化，您可以：", IoInterface.OutputType.ListTitle);
@@ -242,7 +251,7 @@ namespace HITScheduleMasterCLI
             }
 
         }
-
+        [MobileSuitInfo("保存整张课表到Json：Save <.json>")]
         public void Save(string path = "")
         {
             ScheduleCheck();
@@ -300,7 +309,7 @@ namespace HITScheduleMasterCLI
             Io?.WriteLine(outList);
         }
         private IoInterface Io { get; set; }
-
+        [MobileSuit.ObjectModel.MobileSuitIgnore]
         public void SetIo(IoInterface io)
         {
             Io = io;
