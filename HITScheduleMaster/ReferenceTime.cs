@@ -21,8 +21,7 @@ namespace HCGStudio.HITScheduleMaster
             new TimeSpan(10, 00, 00),
             new TimeSpan(13, 45, 00),
             new TimeSpan(15, 45, 00),
-            new TimeSpan(18, 30, 00),
-            new TimeSpan(20, 30, 00)
+            new TimeSpan(18, 30, 00)
         };
     }
 }

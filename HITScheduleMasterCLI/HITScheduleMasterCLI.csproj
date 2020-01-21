@@ -1,0 +1,23 @@
+<Project Sdk="Microsoft.NET.Sdk">
+
+  <PropertyGroup>
+    <OutputType>exe</OutputType>
+    <TargetFramework>netcoreapp3.1</TargetFramework>
+    <Version>1.1.0</Version>
+  </PropertyGroup>
+
+  <ItemGroup>
+    <PackageReference Include="Newtonsoft.Json" Version="12.0.3" />
+  </ItemGroup>
+
+  <ItemGroup>
+    <ProjectReference Include="..\ScheduleTranslator\ScheduleTranslator.csproj" />
+  </ItemGroup>
+
+  <ItemGroup>
+    <Reference Include="MobileSuit">
+      <HintPath>MobileSuit.dll</HintPath>
+    </Reference>
+  </ItemGroup>
+
+</Project>
