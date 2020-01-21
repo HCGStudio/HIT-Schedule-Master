@@ -1,7 +1,7 @@
 ﻿using System;
 using System.Text.RegularExpressions;
 using ScheduleTranslator;
-using MobileSuit;
+using PlasticMetal.MobileSuit;
 
 namespace HITScheduleMasterCLI
 {
@@ -10,7 +10,7 @@ namespace HITScheduleMasterCLI
         
         static void Main(string[] args)
         {
-            (new MobileSuitHost(typeof(Driver))).Run();
+            (new MsHost(new Driver())).Run();
 
         }
         
